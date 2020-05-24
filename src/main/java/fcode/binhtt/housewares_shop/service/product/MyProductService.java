@@ -21,6 +21,11 @@ public class MyProductService implements ProductService {
     }
 
     @Override
+    public List<Product> findAllProducts() {
+        return productRepository.findAll();
+    }
+
+    @Override
     public List<Product> findAllProductByName(String name) {
         return productRepository.findAllByProductNameContaining(name);
     }
@@ -41,17 +46,22 @@ public class MyProductService implements ProductService {
     }
 
     @Override
-    public Page<Product> finđAllByBrand(Integer brandId, Pageable pageable) {
-        return productRepository.findAllByBrand(brandId, pageable);
+    public List<Product> findAllByBrand(Integer brandId) {
+        return productRepository.findAllByBrand(brandId);
     }
 
     @Override
-    public Page<Product> findAllByCategory(Integer categoryId, Pageable pageable) {
-        return productRepository.findAllByCategory(categoryId, pageable);
+    public List<Product> findAllByCategory(Integer categoryId) {
+        return productRepository.findAllByCategory(categoryId);
     }
 
     @Override
     public List<Product> findAllByPromotion(Integer promotion) {
         return productRepository.findAllByPromotionGreaterThanEqual(promotion);
+    }
+
+    @Override
+    public List<Product> findAllProductByTotal(Integer total) {
+        return productRepository.findAllProductByTotalGreaterThan(total);
     }
 }

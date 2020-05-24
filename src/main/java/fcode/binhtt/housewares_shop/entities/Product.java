@@ -24,12 +24,14 @@ public class Product {
     private Integer promotion;
     @Column(name = "quantity")
     private Integer quantity;
-    @Column(name = "origin")
+    @Column(name = "origin",nullable = false)
     private String origin;
     @Column(name = "weight")
     private Double weight;
     @Column(name = "size")
     private String size;
+    @Column(name = "status", nullable = false)
+    private Integer status;
     @OneToMany(mappedBy="product")
     @JsonBackReference
     private List<ImageProduct> imageUrl;

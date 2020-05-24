@@ -13,8 +13,10 @@ import java.util.List;
 public interface ProductRepository extends JpaRepository<Product, Integer> {
     List<Product> findAllByProductNameContaining(String name);
     @Query("select p from Product p where p.category.categoryId = ?1")
-    Page<Product> findAllByCategory(Integer categoryId, Pageable pageable);
+    List<Product> findAllByCategory(Integer categoryId);
     @Query("select p from Product p where p.brand.brandId = ?1")
-    Page<Product> findAllByBrand(Integer brandId, Pageable pageable);
+    List<Product> findAllByBrand(Integer brandId);
     List<Product> findAllByPromotionGreaterThanEqual(Integer promotion);
+    @Query("select p from Product p where p.price * (1 - p.promotion) > ?1")
+    List<Product> findAllProductByTotalGreaterThan(Integer total);
 }

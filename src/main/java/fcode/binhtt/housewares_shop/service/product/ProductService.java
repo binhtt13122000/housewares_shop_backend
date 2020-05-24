@@ -10,6 +10,8 @@ import java.util.Optional;
 public interface ProductService {
     Page<Product> findAllProducts(Pageable pageable);
 
+    List<Product> findAllProducts();
+
     List<Product> findAllProductByName(String name);
 
     Optional<Product> findProductById(Integer productId);
@@ -18,9 +20,11 @@ public interface ProductService {
 
     void remove(Product product);
 
-    Page<Product> finđAllByBrand(Integer brandId, Pageable pageable);
+    List<Product> findAllByBrand(Integer brandId);
 
-    Page<Product> findAllByCategory(Integer categoryId, Pageable pageable);
+    List<Product> findAllByCategory(Integer categoryId);
+
+    List<Product> findAllProductByTotal(Integer total);
 
     List<Product> findAllByPromotion(Integer promotion);
 }
