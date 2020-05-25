@@ -20,18 +20,6 @@ public class ProductController {
     @Autowired
     private MyProductService productService;
 
-//    @GetMapping("/products")
-//    public ResponseEntity findAllProducts(@RequestParam Optional<Integer> page,
-//                                          @RequestParam Optional<String> sortBy){
-//        Pageable pageable = setPageable(page.orElse(0), 10, sortBy.orElse("productId"));
-//        Page<Product> products = productService.findAllProducts(pageable);
-//        if(products.isEmpty()){
-//            return new ResponseEntity(HttpStatus.NO_CONTENT);
-//        } else {
-//            return new ResponseEntity(products, HttpStatus.OK);
-//        }
-//    }
-
     @GetMapping("/products")
     public ResponseEntity findAllProductByName(@RequestParam Optional<String> q){
         List<Product> products;
@@ -107,6 +95,12 @@ public class ProductController {
         } else {
             return new ResponseEntity(productService.findAllProductByTotal(0), HttpStatus.OK);
         }
+    }
+
+    @PostMapping("/product")
+    public ResponseEntity createProduct(@RequestBody Product product){
+        productService.save(product);
+        return new ResponseEntity(product, HttpStatus.CREATED);
     }
 
     @DeleteMapping("/product/{productId}")
