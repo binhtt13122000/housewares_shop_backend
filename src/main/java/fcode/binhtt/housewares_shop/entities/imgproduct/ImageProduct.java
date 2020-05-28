@@ -1,12 +1,14 @@
-package fcode.binhtt.housewares_shop.entities;
+package fcode.binhtt.housewares_shop.entities.imgproduct;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import fcode.binhtt.housewares_shop.entities.product.Product;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "image_product")
-public class ImageProduct {
+public class ImageProduct implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "image_id")

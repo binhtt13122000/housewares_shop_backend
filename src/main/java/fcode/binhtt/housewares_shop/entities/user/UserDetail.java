@@ -1,6 +1,6 @@
-package fcode.binhtt.housewares_shop.constants;
+package fcode.binhtt.housewares_shop.entities.user;
 
-import fcode.binhtt.housewares_shop.entities.User;
+import fcode.binhtt.housewares_shop.entities.user.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

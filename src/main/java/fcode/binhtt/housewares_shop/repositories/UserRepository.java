@@ -1,6 +1,6 @@
 package fcode.binhtt.housewares_shop.repositories;
 
-import fcode.binhtt.housewares_shop.entities.User;
+import fcode.binhtt.housewares_shop.entities.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,17 +1,24 @@
-package fcode.binhtt.housewares_shop.entities;
+package fcode.binhtt.housewares_shop.entities.product;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import fcode.binhtt.housewares_shop.entities.brand.Brand;
+import fcode.binhtt.housewares_shop.entities.cart.CartDetail;
+import fcode.binhtt.housewares_shop.entities.category.Category;
+import fcode.binhtt.housewares_shop.entities.comment.Comment;
+import fcode.binhtt.housewares_shop.entities.imgproduct.ImageProduct;
+import fcode.binhtt.housewares_shop.entities.rate.Rate;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
 @Data
 @Entity
 @Table(name = "product")
-public class Product {
+public class Product implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "product_id", nullable = false, insertable = false, unique = true)
@@ -39,12 +46,20 @@ public class Product {
     private Date createdTime;
     @Column(name = "last_updated")
     private Date lastUpdated;
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name="category_id", nullable=false)
     @JsonManagedReference
     private Category category;
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name="brand_id", nullable=false)
     @JsonManagedReference
     private Brand brand;
+
+    @OneToMany(mappedBy = "user")
+    private List<Rate> users;
+    @OneToMany(mappedBy = "user")
+    private List<Comment> userList;
+
+    @OneToMany(mappedBy = "cart")
+    private List<CartDetail> carts;
 }

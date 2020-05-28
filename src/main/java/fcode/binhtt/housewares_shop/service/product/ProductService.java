@@ -1,6 +1,6 @@
 package fcode.binhtt.housewares_shop.service.product;
 
-import fcode.binhtt.housewares_shop.entities.Product;
+import fcode.binhtt.housewares_shop.entities.product.Product;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

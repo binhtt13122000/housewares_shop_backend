@@ -1,8 +1,6 @@
 package fcode.binhtt.housewares_shop.repositories;
 
-import fcode.binhtt.housewares_shop.entities.Product;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+import fcode.binhtt.housewares_shop.entities.product.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
