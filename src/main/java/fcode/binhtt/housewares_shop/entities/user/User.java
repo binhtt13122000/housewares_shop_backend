@@ -4,10 +4,8 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import fcode.binhtt.housewares_shop.entities.cart.Cart;
 import fcode.binhtt.housewares_shop.entities.comment.Comment;
-import fcode.binhtt.housewares_shop.entities.imgproduct.ImageProduct;
 import fcode.binhtt.housewares_shop.entities.rate.Rate;
 import fcode.binhtt.housewares_shop.entities.role.Role;
-import fcode.binhtt.housewares_shop.entities.userstatus.UserStatus;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -43,19 +41,16 @@ public class User implements Serializable {
     private Date createdTime;
     @Column(name = "last_update")
     private Date lastUpdate;
+    @Column(name = "status_id")
+    private Integer statusId;
     @ManyToOne
     @JoinColumn(name = "role_id", nullable = false)
     @JsonManagedReference
     private Role role;
-    @ManyToOne
-    @JoinColumn(name = "status_id", nullable = false)
-    @JsonManagedReference
-    private UserStatus userStatus;
     @OneToMany(mappedBy = "product")
     private List<Rate> products;
     @OneToMany(mappedBy = "product")
     private List<Comment> productList;
-
     @OneToMany(mappedBy="user")
     @JsonBackReference
     private List<Cart> cartList;

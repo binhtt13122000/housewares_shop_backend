@@ -37,8 +37,8 @@ public class Product implements Serializable {
     private Double weight;
     @Column(name = "size")
     private String size;
-    @Column(name = "status", nullable = false)
-    private Integer status;
+    @Column(name = "status_id", nullable = false)
+    private Integer statusId;
     @OneToMany(mappedBy="product")
     @JsonBackReference
     private List<ImageProduct> imageUrl;

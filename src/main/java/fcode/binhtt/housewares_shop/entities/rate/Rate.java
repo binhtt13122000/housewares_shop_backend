@@ -1,6 +1,6 @@
 package fcode.binhtt.housewares_shop.entities.rate;
 
-import fcode.binhtt.housewares_shop.entities.UserProduct.UserProductId;
+import fcode.binhtt.housewares_shop.entities.userproduct.UserProductId;
 import fcode.binhtt.housewares_shop.entities.product.Product;
 import fcode.binhtt.housewares_shop.entities.user.User;
 import lombok.Data;

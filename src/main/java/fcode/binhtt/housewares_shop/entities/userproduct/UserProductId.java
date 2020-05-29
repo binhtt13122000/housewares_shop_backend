@@ -1,4 +1,4 @@
-package fcode.binhtt.housewares_shop.entities.UserProduct;
+package fcode.binhtt.housewares_shop.entities.userproduct;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
